@@ -1,0 +1,40 @@
+services:
+  data:
+    image: mariadb:latest
+    container_name: data
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+      MARIADB_DATABASE: tp3
+      MARIADB_USER: tp3user
+      MARIADB_PASSWORD: tp3pass
+    volumes:
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - tp3net
+
+  script:
+    build: .
+    container_name: script
+    volumes:
+      - ./src:/app
+    networks:
+      - tp3net
+    depends_on:
+      - data
+
+  http:
+    image: nginx:latest
+    container_name: http
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/app
+      - ./config/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - tp3net
+    depends_on:
+      - script
+
+networks:
+  tp3net:
+    driver: bridge
