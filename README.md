@@ -1,5 +1,7 @@
 # DOCKER-TP3
 
+## Les scripts launch.ps1 fournissent un équivalent PowerShell des scripts launch.sh afin de permettre l’exécution du projet sous Windows, tout en conservant une compatibilité Linux complète.
+
 ## Étape 1 – NGINX + PHP-FPM
 Cette étape met en place une architecture web minimale composée de deux conteneurs Docker : NGINX pour la partie HTTP et PHP-FPM pour l’exécution des scripts PHP. Le lancement est automatisé via le script `launch.sh`, rendant l’application accessible sur `http://localhost:8080`.
 
@@ -21,7 +23,4 @@ L’architecture complète est migrée vers Docker Compose afin de centraliser l
 
 cd etape3
 docker compose up -d --build
-
-
-## Les scripts launch.ps1 fournissent un équivalent PowerShell des scripts launch.sh afin de permettre l’exécution du projet sous Windows, tout en conservant une compatibilité Linux complète.
 
