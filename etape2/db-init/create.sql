@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS compteur (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    valeur INT
+);
