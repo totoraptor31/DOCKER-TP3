@@ -22,3 +22,6 @@ L’architecture complète est migrée vers Docker Compose afin de centraliser l
 cd etape3
 docker compose up -d --build
 
+
+- Les scripts launch.ps1 fournissent un équivalent PowerShell des scripts launch.sh afin de permettre l’exécution du projet sous Windows, tout en conservant une compatibilité Linux complète.
+
